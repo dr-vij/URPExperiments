@@ -41,7 +41,7 @@ internal class ColorBlitPass : ScriptableRenderPass
             return;
 
         var cmd = CommandBufferPool.Get();
-        Blitter.BlitCameraTexture(cmd, m_CameraColorTarget, m_CameraColorTarget, m_Material, 0);
+        Blitter.BlitTexture(cmd, m_CameraColorTarget, new Vector4(1,1,0,0), m_Material, 0);
         context.ExecuteCommandBuffer(cmd);
         cmd.Clear();
         CommandBufferPool.Release(cmd);
